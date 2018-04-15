@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Students{% endblock %}
+{% block body %}
+    <h1 class="display-5">Studentai</h1>
+    {% if allStudents %}
+        <ul class="list-group">
+            {% for id, student in allStudents %}
+                <li class="list-group-item">
+                    <a href="{{ path('student', {'id': id}) }}">{{ student.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Stidentų sąrašas tuščias</p>
+    {% endif %}
+{% endblock %}

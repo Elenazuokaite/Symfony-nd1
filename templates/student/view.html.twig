@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vertinimai{% endblock %}
+{% block body %}
+    {% if student %}
+        <table class="table">
+            <tbody>
+            <tr>
+                <th scope="row">Komanda</th>
+                <td>{{ student.team }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Mentorius</th>
+                <td>{{ student.mentor }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Laimingasis(-oji)</th>
+                <td>{{ student.name }}</td>
+            </tr>
+            </tbody>
+        </table>
+        {% if student.name == "Elena" %}
+            <div class="alert alert-success" role="alert">
+                Dešimt balų
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                Gal pasiseks kitą kartą
+            </div>
+        {% endif %}
+        <a href="{{ path('student_list') }}">Visi dalyviai</a>
+    {% endif %}
+
+{% endblock %}
